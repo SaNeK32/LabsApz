@@ -1,10 +1,7 @@
-const express = require('express');
-const app = express();
+const app = require('./api/app.js');
 
-app.use("/test", (req, res) => {
-    res.send({message: 'pass!'});
-    res.end();
+const PORT = process.env.PROXY_PORT || 3001;
 
+app.listen(PORT, () => {
+  console.log(`Proxy server is running on port ${PORT}`);
 });
-
-module.exports = app;
